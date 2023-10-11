@@ -1,0 +1,4 @@
+{
+  "extend": "tslint:recommended",
+  "jsRules": {}
+}
