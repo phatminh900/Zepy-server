@@ -1,4 +1,5 @@
 import http from "http";
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { Server } from "socket.io";
@@ -12,7 +13,7 @@ export const io = new Server(server, {
     origin: "*",
   },
 });
-const PORT = 3001;
+const PORT = process.env.PORT;
 
 io.on("connection", (socket) => {
   handleCall(socket);
