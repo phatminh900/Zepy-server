@@ -54,7 +54,8 @@ export const handleCall = (socket: Socket) => {
       .select("socket_id")
       .eq("user_id", userIdToCall)
       .single();
-
+    console.log(userSocketId);
+    console.log(socket);
     socket.to(userSocketId?.socket_id).emit("other_call", {
       callId,
     });
