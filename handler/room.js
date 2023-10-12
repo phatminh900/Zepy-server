@@ -30,6 +30,7 @@ exports.updateUser = updateUser;
 const handleCall = (socket) => {
     function setUserOnline({ userId }) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log(userId);
             const { data: user } = yield supabase_1.default
                 .from("active_user")
                 .select("id")
@@ -61,6 +62,8 @@ const handleCall = (socket) => {
                 .select("socket_id")
                 .eq("user_id", userIdToCall)
                 .single();
+            console.log(userSocketId);
+            console.log(socket);
             socket.to(userSocketId === null || userSocketId === void 0 ? void 0 : userSocketId.socket_id).emit("other_call", {
                 callId,
             });

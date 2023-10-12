@@ -9,8 +9,6 @@ const app = express();
 const server = http.createServer(app);
 app.use(cors());
 export const io = new Server(server, {
-  transports: ["websocket"],
-
   cors: {
     origin: "*",
   },
